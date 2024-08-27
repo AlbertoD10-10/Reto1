@@ -3,6 +3,10 @@ syntax = "proto3";
 service FileService {
   rpc UploadFile(FileRequest) returns (FileResponse);
   rpc DownloadFile(FileRequest) returns (FileResponse);
+
+  // Métodos para Chord
+  rpc FindSuccessor(FindSuccessorRequest) returns (FindSuccessorResponse);
+  rpc Notify(NotifyRequest) returns (NotifyResponse);
 }
 
 message FileRequest {
@@ -10,5 +14,25 @@ message FileRequest {
 }
 
 message FileResponse {
+  string message = 1;
+}
+
+// Mensajes para Chord
+message FindSuccessorRequest {
+  int64 id = 1;
+}
+
+message FindSuccessorResponse {
+  string ip = 1;
+  int32 port = 2;
+}
+
+message NotifyRequest {
+  int64 predecessor_id = 1;
+  string predecessor_ip = 2;
+  int32 predecessor_port = 3;
+}
+
+message NotifyResponse {
   string message = 1;
 }
