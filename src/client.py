@@ -34,7 +34,7 @@ def print_help() -> None:
 
 def search(args: List[str]) -> None:
     id_busca: int = 0   # TODO change id_busca to something meaningful
-    node_origin: int = int(args[1])
+    node_origin: int = int(args[0])
     key: str = args[1]
     node_origin_port: int = NODE_STARTING_PORT + node_origin
 
