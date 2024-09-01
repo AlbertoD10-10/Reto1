@@ -1,11 +1,11 @@
-syntax = "proto3"
+syntax = "proto3";
 
-service Node{
+service Node {
     rpc Insert(InsertRequest) returns (Empty) {}
     rpc Lookup(LookupRequest) returns (Empty) {}
 }
 
-message InsertRequest{
+message InsertRequest {
     int64 node_origin = 1;
     string key = 2;
     string value = 3;
@@ -19,12 +19,12 @@ message InsertReply {
 }
 
 message LookupRequest {
-    int 64 node_origin = 1;
+    int64 node_origin = 1;
     string key = 2;
     int64 client_port = 3;
 }
 
-message LookupReply{
+message LookupReply {
     int64 node_id = 1;
     string key = 2;
     string value = 3;
